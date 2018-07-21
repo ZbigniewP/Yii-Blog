@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<rule name="SEF Router">
+					<match url="^(.*)$" ignoreCase="true" />
+					<conditions logicalGrouping="MatchAll" trackAllCaptures="true">
+                        <add input="{SCRIPT_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{SCRIPT_FILENAME}" matchType="IsDirectory" negate="true" />
+					</conditions>
+					<action type="Rewrite" url="index.php?r={R:1}" appendQueryString="true" logRewrittenUrl="true" />
+				</rule>
+			</rules>
+		</rewrite>
+		<defaultDocument enabled="true">
+			<files>
+				<clear />
+				<add value="index.php" />
+			</files>
+		</defaultDocument>
+		<caching enabled="false" enableKernelCache="false" />
+	</system.webServer>
+</configuration>
