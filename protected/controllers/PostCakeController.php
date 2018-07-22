@@ -114,7 +114,7 @@ class PostCakeController extends Controller
 		$pages->applyLimit($criteria);
 		$models = CakePosts::model()->findAll($criteria);
 
-		$this->render('index.ctp', [
+		$this->render('/postcake/index.ctp', [
 			'posts' => $models,
 			'pages' => $pages
 		]);
@@ -144,7 +144,7 @@ class PostCakeController extends Controller
 
 		$models = CakePosts::model()->findAll($criteria);
 
-		$this->render('index.ctp', [
+		$this->render('/postcake/index.ctp', [
 			'posts' => $models,
 			'pages' => $pages
 		]);
@@ -188,7 +188,7 @@ class PostCakeController extends Controller
 			}
 		}
 
-		$this->render('view.ctp', ['post' => $models[0], 'comment' => $comment]);
+		$this->render('/postcake/view.ctp', ['post' => $models[0], 'comment' => $comment]);
 	}
 	// 	$post = $this->Posts->find()->where(['Posts.slug' => $slug])->contain(['Categories', 'Users', 'Comments'])->first();
 	// 	$this->set(compact('post', 'comment', 'errors'));

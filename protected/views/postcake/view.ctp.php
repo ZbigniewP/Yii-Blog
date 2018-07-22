@@ -35,7 +35,7 @@
 					<?= $form->textField($comment, 'username', ['class' => 'form-control', 'placeholder' => 'Your username', 'label' => false]) ?>
 				</div>
 			</div>
-			<?= $form->textField($comment,'post_id', ['type' => 'hidden', 'value' => $post->id]) ?>
+			<?= $form->textField($comment, 'post_id', ['type' => 'hidden', 'value' => $post->id]) ?>
 		</div>
 		<div class="form-group">
 			<?= $form->textField($comment, 'content', ['class' => 'form-control', 'placeholder' => 'Your comment', 'label' => false]) ?>

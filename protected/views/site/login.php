@@ -18,24 +18,24 @@ $this->breadcrumbs=array(
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'username')?>
-		<?php echo $form->textField($model,'username')?>
-		<?php echo $form->error($model,'username')?>
+		<?= $form->labelEx($model,'username')?>
+		<?= $form->textField($model,'username')?>
+		<?= $form->error($model,'username')?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password')?>
-		<?php echo $form->passwordField($model,'password')?>
-		<?php echo $form->error($model,'password')?>
+		<?= $form->labelEx($model,'password')?>
+		<?= $form->passwordField($model,'password')?>
+		<?= $form->error($model,'password')?>
 		<p class="hint">
 			Hint: You may login with <tt>demo/demo</tt>.
 		</p>
 	</div>
 
 	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe')?>
-		<?php echo $form->label($model,'rememberMe')?>
-		<?php echo $form->error($model,'rememberMe')?>
+		<?= $form->checkBox($model,'rememberMe')?>
+		<?= $form->label($model,'rememberMe')?>
+		<?= $form->error($model,'rememberMe')?>
 	</div>
 
 	<div class="row submit">

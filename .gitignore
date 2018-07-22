@@ -1,7 +1,14 @@
-/.idea
-/.vscode
-/assets
-/protected/runtime
-/protected/tests
+/.idea/*
+/.vscode/*
+/assets/*
+/config/app.php
+/logs/*
+/protected/config/main.php
+/protected/runtime/*
+/protected/tests/*
+/tmp/*
+/vendor/*
 
 blogYii.rar
+index-test.php
+index.php
