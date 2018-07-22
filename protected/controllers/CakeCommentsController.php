@@ -1,5 +1,6 @@
 <?php
 
+Yii::app()->name='Symfony Blog Demo';
 class CakeCommentsController extends Controller
 {
 	public $layout = 'column2';

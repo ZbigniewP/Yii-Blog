@@ -1,6 +1,6 @@
 <?php 
 /** @var \App\View\AppView $this */ ?>
-<div class="col-md-4 sidebar">
+<div class="col-md-4 span-8 sidebar">
 	<h4>Categories</h4>
 	<div class="list-group">
 <?php 

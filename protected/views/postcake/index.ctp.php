@@ -1,5 +1,5 @@
 <?php /** @var \App\View\AppView $this */ ?>
-<div class="col-md-8">
+<div class="col-md-8 span-16">
 	<div class="page-header">
 		<h1>Blog</h1>
 		<p class="lead">Welcome on my blog</p>
@@ -19,7 +19,7 @@
 				echo truncate($post->content, 450, '...');
 				$this->endWidget();
 			?></p>
-			<p class="text-right"><?= CHtml::link('Read more...', 
+			<p class="text-right" style="text-align:right;"><?= CHtml::link('Read more...', 
 			['postcake/view', 'slug' => $post->slug], ['class' => 'btn btn-primary']) 
 			?></p>
 		</article>

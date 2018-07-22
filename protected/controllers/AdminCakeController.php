@@ -6,6 +6,8 @@
 // use Cake\Http\Response;
 // use Cake\Network\Exception\NotFoundException;
 
+Yii::app()->name='Symfony Blog Demo';
+
 /**
  * Class AdminController
  * @package App\Controller
