@@ -70,9 +70,12 @@ class CakePosts extends CActiveRecord
 		// class name for the relations automatically generated below.
 		// return array();
 		return array(
+			'user' => array(self::BELONGS_TO, 'CakeUsers', 'user_id'),
+			'category' => array(self::BELONGS_TO, 'CakeCategories', 'category_id'),
+
 			'author' => array(self::BELONGS_TO, 'CakeUsers', 'user_id'),
-			'comments' => array(self::HAS_MANY, 'CakeComments', 'post_id', 'condition' => 'comments.status=' . CakeComments::STATUS_APPROVED, 'order' => 'comments.created DESC'),
-			'commentCount' => array(self::STAT, 'CakeComments', 'post_id', 'condition' => 'status=' . CakeComments::STATUS_APPROVED),
+			'comments' => array(self::HAS_MANY, 'CakeComments', 'post_id', 'order' => 'comments.created DESC'),//'condition' => 'comments.status=' . CakeComments::STATUS_APPROVED,
+			'commentCount' => array(self::STAT, 'CakeComments', 'post_id'),//, 'condition' => 'status=' . CakeComments::STATUS_APPROVED
 		);
 	}
 
@@ -160,8 +163,23 @@ class CakePosts extends CActiveRecord
 // foreach ($models as $tag)
 // $category[] = $tag->name;
 // return CakeCategories::array2string($category);
+// 'condition' => 'status=' . CakePosts::STATUS_PUBLISHED,
+// 'order' => 'updated DESC',
+// 'with' => 'commentCount',
+// 'select' => array('id', 'name'),
+// self::model()->select='id,name';
 		$category = CakeCategories::model()->findByPk($this->category_id);
 		return $category->name;
+	}
+
+	public function findLastPosts($limit = 10)
+	{
+		return $this->findAll(array(
+			'condition' => 'status=' . self::STATUS_PUBLISHED,
+			'order' => 'updated DESC',
+			'with' => 'commentCount',
+			'limit' => $limit
+		));
 	}
 
 	/**

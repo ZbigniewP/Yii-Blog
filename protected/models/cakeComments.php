@@ -61,9 +61,7 @@ class CakeComments extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'post' => array(self::BELONGS_TO, 'CakePosts', 'post_id'),
-		);
+		return array('posts' => array(self::BELONGS_TO, 'CakePosts', 'post_id'));
 	}
 
 	/**
@@ -122,7 +120,7 @@ class CakeComments extends CActiveRecord
 
 	public function findRecentComments($limit = 10)
 	{
-		return $this->with('post')->findAll(array(
+		return $this->with('posts')->findAll(array(
 			'condition' => 't.status=' . self::STATUS_APPROVED,
 			'order' => 't.created DESC',
 			'limit' => $limit,

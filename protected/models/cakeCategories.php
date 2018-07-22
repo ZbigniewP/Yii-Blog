@@ -51,7 +51,9 @@ class CakeCategories extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array();
+		return array(
+			'post' => array(self::HAS_MANY, 'CakePosts', 'category_id'),
+		);
 	}
 
 	/**
@@ -132,5 +134,13 @@ class CakeCategories extends CActiveRecord
 	public static function array2string($category)
 	{
 		return implode(', ', $category);
+	}
+
+	public function findTopCategories($limit = 10)
+	{
+		return $this->findAll(array(
+			'order' => 'post_count DESC',
+			'limit' => $limit,
+		));
 	}
 }

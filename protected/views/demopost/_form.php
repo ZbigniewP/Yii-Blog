@@ -4,7 +4,7 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo CHtml::errorSummary($model)?>
+	<?= CHtml::errorSummary($model)?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model, 'title')?>
@@ -20,13 +20,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model, 'summary')?>
-		<?php echo CHtml::activeTextArea($model, 'summary', array('rows' => 3, 'cols' => 70, 'maxlength' => 255))?>
+		<?= CHtml::activeTextArea($model, 'summary', array('rows' => 3, 'cols' => 70, 'maxlength' => 255))?>
 		<?php echo $form->error($model, 'summary')?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model, 'content')?>
-		<?php echo CHtml::activeTextArea($model, 'content', array('rows' => 10, 'cols' => 70))?>
+		<?= CHtml::activeTextArea($model, 'content', array('rows' => 10, 'cols' => 70))?>
 		<p class="hint">You may use <a target="_blank" href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>.</p>
 		<?php echo $form->error($model, 'content')?>
 	</div>
@@ -51,7 +51,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save')?>
+		<?= CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save')?>
 	</div>
 
 <?php $this->endWidget()?>

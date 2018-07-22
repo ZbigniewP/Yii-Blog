@@ -1,7 +1,10 @@
 <?php
 
+Yii::app()->name='Cake Blog Demo';
+
 class CakePostsController extends Controller
 {
+	// public $layout = 'default.ctp';
 	public $layout = 'column2';
 
 	/**
@@ -110,14 +113,16 @@ class CakePostsController extends Controller
 	{
 		$criteria = new CDbCriteria(array(
 			'condition' => 'status=' . CakePosts::STATUS_PUBLISHED,
-			'order' => 'updated DESC',
-			'with' => 'commentCount',
+			// 'order' => 'updated DESC',
+			'order' => 'created DESC',
+			// 'with' => 'commentCount',
+			'with' => array('category', 'user')
 		));
 		if (isset($_GET['tag']))
 			$criteria->addSearchCondition('category_id', $_GET['tag']);
 
 		$dataProvider = new CActiveDataProvider('CakePosts', array(
-			'pagination' => array('pageSize' => Yii::app()->params['postsPerPage']),
+			'pagination' => array('pageSize' => 2),//Yii::app()->params['postsPerPage']
 			'criteria' => $criteria,
 		));
 
@@ -192,5 +197,33 @@ class CakePostsController extends Controller
 			}
 		}
 		return $comment;
+	}
+
+	/**
+	 * Get posts by category
+	 * @param string $slug wanted slug
+	 * @return void
+	 */
+	public function category($slug)
+	{
+		// $posts = $this->paginate($this->Posts->find()->where(['Categories.slug' => $slug]));
+
+		// $this->set(compact('posts'));
+		// $this->set('_serialize', ['posts']);
+		// $this->render('index');
+
+		$criteria = new CDbCriteria(array(
+			'condition' => 'status=' . CakePosts::STATUS_PUBLISHED,
+			// 'order' => 'updated DESC',
+			'order' => 'created DESC',
+			// 'with' => 'commentCount',
+			'with' => array('category', 'user')
+		));
+		$criteria->addSearchCondition('slug', $slug);
+
+		$dataProvider = new CActiveDataProvider('CakePosts', array(
+			'pagination' => array('pageSize' => 5),//Yii::app()->params['postsPerPage']
+			'criteria' => $criteria,
+		));
 	}
 }

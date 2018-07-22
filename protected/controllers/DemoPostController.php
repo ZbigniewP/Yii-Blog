@@ -1,5 +1,7 @@
 <?php
 
+Yii::app()->name='Symfony Blog Demo';
+
 class DemoPostController extends Controller
 {
 	public $layout = 'column2';

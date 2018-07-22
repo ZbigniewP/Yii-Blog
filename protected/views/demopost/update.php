@@ -6,6 +6,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Update <i><?php echo CHtml::encode($model->title)?></i></h1>
+<h1>Update <i><?= CHtml::encode($model->title)?></i></h1>
 
 <?php echo $this->renderPartial('/symfony/_form', array('model'=>$model))?>

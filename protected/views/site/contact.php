@@ -60,7 +60,7 @@ If you have business inquiries or other questions, please fill out the following
 	<?php endif; ?>
 
 	<div class="row submit">
-		<?php echo CHtml::submitButton('Submit')?>
+		<?= CHtml::submitButton('Submit')?>
 	</div>
 
 <?php $this->endWidget()?>

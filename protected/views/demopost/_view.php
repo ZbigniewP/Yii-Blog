@@ -1,6 +1,6 @@
 <div class="post">
 	<div class="title">
-		<?php echo CHtml::link(CHtml::encode($data->title), $data->url)?>
+		<?= CHtml::link(CHtml::encode($data->title), $data->url)?>
 	</div>
 	<div class="author">
 		posted by <?php echo $data->author->username . ' on ' . $data->publishedAt ?>
@@ -16,8 +16,8 @@
 		<b>Tags:</b>
 		<?php echo implode(', ', $data->tagLinks)?>
 		<br />
-		<?php echo CHtml::link('Permalink', $data->url)?> |
-		<?php echo CHtml::link("Comments ({$data->commentCount})", $data->url . '#comments')?>
+		<?= CHtml::link('Permalink', $data->url)?> |
+		<?= CHtml::link("Comments ({$data->commentCount})", $data->url . '#comments')?>
 		<?php if(!empty($data->updatedAt)):?> |
 			Last updated on <?php echo date('F j, Y', $data->updatedAt)?>
 		<?php endif; ?>

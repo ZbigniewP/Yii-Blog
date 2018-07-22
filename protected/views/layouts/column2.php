@@ -7,11 +7,17 @@
 	</div>
 	<div class="span-6 last">
 		<div id="sidebar">
-			<?php if(!Yii::app()->user->isGuest) $this->widget('UserMenu')?>
+<?php 
+if (!Yii::app()->user->isGuest) $this->widget('UserMenu');
 
-			<?php $this->widget('TagCloud', array('maxTags'=>Yii::app()->params['tagCloudCount']))?>
-
-			<?php $this->widget('RecentComments', array('maxComments'=>Yii::app()->params['recentCommentCount']))?>
+if ($this->id == 'cakeposts' || $this->id == 'postcake') {
+	$this->widget('TopCategories', array('maxCategories' => 10, 'title' => 'Categories'));
+	$this->widget('TopPosts', array('maxPosts' => 5, 'title' => 'Last posts'));
+} else {
+	$this->widget('TagCloud', array('maxTags' => Yii::app()->params['tagCloudCount']));
+	$this->widget('RecentComments', array('maxComments' => Yii::app()->params['recentCommentCount']));
+}
+?>
 		</div><!-- sidebar -->
 	</div>
 </div>

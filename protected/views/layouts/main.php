@@ -5,16 +5,16 @@
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
 	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?= Yii::app()->request->baseUrl; ?>/css/form.css" />
 
-	<title><?php echo CHtml::encode($this->pageTitle)?></title>
+	<title><?= CHtml::encode($this->pageTitle)?></title>
 </head>
 
 <body>
@@ -22,33 +22,32 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name)?></div>
+		<div id="logo"><?= CHtml::encode(Yii::app()->name)?></div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('post/index')),
-				array('label'=>'Cake', 'url'=>array('cakeposts/index')),
-				array('label'=>'Symfony', 'url'=>array('demopost/index')),
-				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('site/contact')),
-				array('label'=>'Login', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+		<?php $this->widget('zii.widgets.CMenu', array(
+			'items' => array(
+				array('label' => 'Yii', 'url' => array('post/index')),
+				array('label' => 'Cake', 'url' => array('cakeposts/index')),
+				array('label' => 'Cake2', 'url' => array('postcake/index')),
+				array('label' => 'Symfony', 'url' => array('demopost/index')),
+				array('label' => 'About', 'url' => array('site/page', 'view' => 'about')),
+				array('label' => 'Contact', 'url' => array('site/contact')),
+				array('label' => 'Login', 'url' => array('site/login'), 'visible' => Yii::app()->user->isGuest),
+				array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('site/logout'), 'visible' => !Yii::app()->user->isGuest)
 			),
 		))?>
 	</div><!-- mainmenu -->
 
-	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-		'links'=>$this->breadcrumbs,
-	))?><!-- breadcrumbs -->
+	<?php $this->widget('zii.widgets.CBreadcrumbs', ['links' => $this->breadcrumbs]) ?><!-- breadcrumbs -->
 
-	<?php echo $content; ?>
+	<?= $content; ?>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y')?> by My Company.<br />
+		Copyright &copy; <?= date('Y') ?> by My Company.<br />
 		All Rights Reserved.<br />
-		<?php echo Yii::powered()?>
+		<?= Yii::powered() ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

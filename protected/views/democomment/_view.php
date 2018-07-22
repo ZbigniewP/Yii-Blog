@@ -17,20 +17,20 @@ Yii::app()->getClientScript()->registerScript('delete', $deleteJS);
 ?>
 <div class="comment" id="c<?php echo $data->id; ?>">
 
-	<?php echo CHtml::link("#{$data->id}", $data->url, array('class' => 'cid', 'title' => 'Permalink to this comment'))?>
+	<?= CHtml::link("#{$data->id}", $data->url, array('class' => 'cid', 'title' => 'Permalink to this comment'))?>
 
 	<div class="author">
 		<?php echo $data->authorLink; ?> says on
-		<?php echo CHtml::link(CHtml::encode($data->post->title), $data->post->url)?>
+		<?= CHtml::link(CHtml::encode($data->post->title), $data->post->url)?>
 	</div>
 
 	<div class="time">
 		<?php if ($data->status <= DemoComment::STATUS_PENDING) : ?>
 			<span class="pending">Pending approval</span> |
-			<?php echo CHtml::linkButton('Approve', array('submit' => array('approve', 'id' => $data->id)))?> |
+			<?= CHtml::linkButton('Approve', array('submit' => array('approve', 'id' => $data->id)))?> |
 		<?php endif; ?>
-		<?php echo CHtml::link('Update', array('update', 'id' => $data->id))?> |
-		<?php echo CHtml::link('Delete', array('delete', 'id' => $data->id), array('class' => 'delete'))?> |
+		<?= CHtml::link('Update', array('update', 'id' => $data->id))?> |
+		<?= CHtml::link('Delete', array('delete', 'id' => $data->id), array('class' => 'delete'))?> |
 		<?php echo $data->publishedAt ?>
 	</div>
 
