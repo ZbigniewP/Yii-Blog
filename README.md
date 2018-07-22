@@ -13,4 +13,4 @@ Szczegóły znajdują się na stronych frameworków:
 ### Podzielona jest na 3 etapy:
 1. **stworzenie** - aplikacja odczytu danych dla 3 schematów baz danych na przyładzie z yii
 2. **konwersja** - schemat kodu kontrolera i interfejsu tak jak w wymienionych przykładach zgodnie z założeniami.
-3. **optymalizacja** - poprawienie formularzy, interfejsów, nazw konrolerów a szczególnie routingu
+3. **optymalizacja** - poprawienie formularzy, interfejsów, nazw konrolerów a szczególnie routingu 
