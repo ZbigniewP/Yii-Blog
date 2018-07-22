@@ -1,4 +1,7 @@
 /.idea
 /.vscode
+/assets
+/protected/runtime
+/protected/tests
 
 blogYii.rar
