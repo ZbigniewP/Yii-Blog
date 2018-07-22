@@ -21,3 +21,10 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 }
+function truncate($value, $length, $replace = '...')
+{
+	if (!isset($value)) {
+		return null;
+	}
+	return strlen($value) <= $length ? $value : substr($value, 0, $length - strlen($replace)) . $replace;
+}
