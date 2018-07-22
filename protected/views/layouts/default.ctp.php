@@ -123,7 +123,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 // echo "</pre>";
 // exit();//layouts/
 
-// <div class="col-md-4 sidebar"><pre>, 'home'
+// <div class="col-md-4 span-8 sidebar"><pre>, 'home'
 // print_r([$this->request->params['controller']]);
 // </pre></div>
 // renderHead(&$output)

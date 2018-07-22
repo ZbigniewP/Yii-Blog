@@ -4,24 +4,24 @@
 
 <?= $this->Form->create($post); ?>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 span-12">
         <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Name :']) ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 span-12">
         <?= $this->Form->control('slug', ['class' => 'form-control', 'label' => 'Slug :']) ?>
     </div>
-    <!-- <div class="col-md-6">
+    <!-- <div class="col-md-6 span-12">
         <?= $this->Form->control('tags', ['class' => 'form-control', 'label' => 'Tags :']) ?>
     </div> -->
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 span-12">
         <?= $this->Form->control('category_id', ['class' => 'form-control', 'label' => 'Category :']) ?>
     </div>
-    <!-- <div class="col-md-6">
+    <!-- <div class="col-md-6 span-12">
         <?= $this->Form->control('status', ['class' => 'form-control', 'label' => 'Status :']) ?>
     </div> -->
-    <div class="col-md-6">
+    <div class="col-md-6 span-12">
         <?= $this->Form->control('user_id', ['class' => 'form-control', 'label' => 'Author :']) ?>
     </div>
 </div>

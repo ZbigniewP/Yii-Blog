@@ -8,7 +8,7 @@
 // use Cake\Event\Event;
 // use Cake\Http\Response;
 Yii::app()->name = 'Cake Blog Demo';
-Yii::app()->layout = 'default.ctp';
+// Yii::app()->layout = 'default.ctp';
 /**
  * Posts Controller
  *
@@ -23,8 +23,8 @@ Yii::app()->layout = 'default.ctp';
 // class PostsController extends AppController
 class PostCakeController extends Controller
 {
-	public $layout = '//layouts/default.ctp';
-	// public $layout = 'column2';
+	// public $layout = '//layouts/default.ctp';
+	public $layout = 'column2';
 	// public $layout = 'postcake';
 
 	public $paginate = [
@@ -34,7 +34,7 @@ class PostCakeController extends Controller
 
 	public function initialize()
 	{
-		$this->layout = 'postcake';
+		// $this->layout = 'postcake';
 	}
 
 	/**
