@@ -1,6 +1,6 @@
-# frameWorksDemo
+# Yii Blog
 
-przykłady konwersji kodu schematów yii, CakePHP i Symfony na bazie przykładów wymienionych frameworków
+Przykłady konwersji kodu schematów yii, CakePHP i Symfony na bazie przykładów wymienionych frameworków
 
 ### Celem aplikacji jest pokazanie jak można przenieść aplikację z innego frameworka.
 Aplikacja wykorzystuje przykłady tworzenia blogu z wykorzystaniem **SQLite**.
