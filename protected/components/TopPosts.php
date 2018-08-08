@@ -10,9 +10,9 @@ class TopPosts extends CPortlet
 	public function getLastPosts()
 	{
 		switch (strtolower($this->owner->id)) {
-			case 'postcake':
-			case 'cakeposts': return CakePosts::model()->findLastPosts($this->maxPosts);
-			// case 'demopost': return DemoPost::model()->findLastPosts($this->maxPosts);
+			case 'postcake': case 'cakeposts':
+				return CakePosts::model()->findLastPosts($this->maxPosts);
+			// case 'symfony/yiipost': return DemoPost::model()->findLastPosts($this->maxPosts);
 			// case 'post':
 			// default: return Post::model()->findLastPosts($this->maxPosts);
 		}

@@ -16,19 +16,18 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		// $user=DemoUser::model()->find('LOWER(username)=?',array(strtolower($this->username)));
-		$user=User::model()->find('LOWER(username)=?',array(strtolower($this->username)));
+		$user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
 		// $user=CakeUsers::model()->find('LOWER(username)=?',array(strtolower($this->username)));
-		if($user===null)
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if(!$user->validatePassword($this->password))
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-		{
-			$this->_id=$user->id;
-			$this->username=$user->username;
-			$this->errorCode=self::ERROR_NONE;
+		if ($user === null)
+			$this->errorCode = self::ERROR_USERNAME_INVALID;
+		else if (!$user->validatePassword($this->password))
+			$this->errorCode = self::ERROR_PASSWORD_INVALID;
+		else {
+			$this->_id = $user->id;
+			$this->username = $user->username;
+			$this->errorCode = self::ERROR_NONE;
 		}
-		return $this->errorCode==self::ERROR_NONE;
+		return $this->errorCode == self::ERROR_NONE;
 	}
 
 	/**

@@ -7,8 +7,7 @@
 // use Cake\Datasource\Exception\RecordNotFoundException;
 // use Cake\Event\Event;
 // use Cake\Http\Response;
-Yii::app()->name = 'Cake Blog Demo';
-// Yii::app()->layout = 'default.ctp';
+
 /**
  * Posts Controller
  *
@@ -16,6 +15,11 @@ Yii::app()->name = 'Cake Blog Demo';
  *
  * @method Post[] paginate($object = null, array $settings = [])
  */
+Yii::app()->defaultController = 'PostCake';
+Yii::app()->layout = 'default.ctp';
+Yii::app()->name = 'Cake Blog Demo';
+Yii::app()->theme = 'cakephp';
+
 // echo "<pre>";
 // print_r(Yii::app());
 // echo "</pre>";
@@ -25,7 +29,6 @@ class PostCakeController extends Controller
 {
 	// public $layout = '//layouts/default.ctp';
 	public $layout = 'column2';
-	// public $layout = 'postcake';
 
 	public $paginate = [
 		'contain' => ['category', 'user'],
@@ -71,7 +74,7 @@ class PostCakeController extends Controller
 		$models = CakePosts::model()->findAll($criteria);
 
 		// $this->renderText(Yii::app()->getViewPath());
-		$this->render('/postcake/index.ctp', [
+		$this->render('//postcake/index.ctp', [
 			'posts' => $models,
 			'pages' => $pages
 		]);
@@ -114,7 +117,7 @@ class PostCakeController extends Controller
 		$pages->applyLimit($criteria);
 		$models = CakePosts::model()->findAll($criteria);
 
-		$this->render('/postcake/index.ctp', [
+		$this->render('//postcake/index.ctp', [
 			'posts' => $models,
 			'pages' => $pages
 		]);
@@ -135,7 +138,7 @@ class PostCakeController extends Controller
 	// }
 	public function actionCategory($slug)
 	{
-		$criteria = new CDbCriteria(['with' => 'category', 'condition' => 'category.slug="'.$slug.'"']);
+		$criteria = new CDbCriteria(['with' => 'category', 'condition' => 'category.slug="' . $slug . '"']);
 		$count = CakePosts::model()->count($criteria);
 		$pages = new CPagination($count);
 		## results per page
@@ -144,7 +147,7 @@ class PostCakeController extends Controller
 
 		$models = CakePosts::model()->findAll($criteria);
 
-		$this->render('/postcake/index.ctp', [
+		$this->render('//postcake/index.ctp', [
 			'posts' => $models,
 			'pages' => $pages
 		]);
@@ -170,7 +173,7 @@ class PostCakeController extends Controller
 	public function actionView($slug = null)
 	{
 		$criteria = new CDbCriteria(['with' => ['category', 'user', 'comments']]);
-		if (isset($slug)) $criteria->addSearchCondition('t.slug', $slug );
+		if (isset($slug)) $criteria->addSearchCondition('t.slug', $slug);
 		$models = CakePosts::model()->with(['category', 'user', 'comments'])->findAll($criteria);
 
 		$comment = new CakeComments;
@@ -188,7 +191,7 @@ class PostCakeController extends Controller
 			}
 		}
 
-		$this->render('/postcake/view.ctp', ['post' => $models[0], 'comment' => $comment]);
+		$this->render('//postcake/view.ctp', ['post' => $models[0], 'comment' => $comment]);
 	}
 	// 	$post = $this->Posts->find()->where(['Posts.slug' => $slug])->contain(['Categories', 'Users', 'Comments'])->first();
 	// 	$this->set(compact('post', 'comment', 'errors'));

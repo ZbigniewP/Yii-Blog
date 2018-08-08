@@ -1,19 +1,17 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
-$this->breadcrumbs=array(
-	'Contact',
-);
+$this->pageTitle = Yii::app()->name . ' - Contact Us';
+$this->breadcrumbs = ['Contact'];
 ?>
 
 <h1>Contact Us</h1>
 
-<?php if(Yii::app()->user->hasFlash('contact')): ?>
+<?php if (Yii::app()->user->hasFlash('contact')) : ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('contact')?>
+	<?php echo Yii::app()->user->getFlash('contact') ?>
 </div>
 
-<?php else: ?>
+<?php else : ?>
 
 <p>
 If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
@@ -21,38 +19,38 @@ If you have business inquiries or other questions, please fill out the following
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm')?>
+<?php $form = $this->beginWidget('CActiveForm') ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?= $form->errorSummary($model)?>
+	<?= $form->errorSummary($model) ?>
 
 	<div class="row">
-		<?= $form->labelEx($model,'name')?>
-		<?= $form->textField($model,'name')?>
+		<?= $form->labelEx($model, 'name') ?>
+		<?= $form->textField($model, 'name') ?>
 	</div>
 
 	<div class="row">
-		<?= $form->labelEx($model,'email')?>
-		<?= $form->textField($model,'email')?>
+		<?= $form->labelEx($model, 'email') ?>
+		<?= $form->textField($model, 'email') ?>
 	</div>
 
 	<div class="row">
-		<?= $form->labelEx($model,'subject')?>
-		<?= $form->textField($model,'subject',array('size'=>60,'maxlength'=>128))?>
+		<?= $form->labelEx($model, 'subject') ?>
+		<?= $form->textField($model, 'subject', array('size' => 60, 'maxlength' => 128)) ?>
 	</div>
 
 	<div class="row">
-		<?= $form->labelEx($model,'body')?>
-		<?= $form->textArea($model,'body',array('rows'=>6, 'cols'=>50))?>
+		<?= $form->labelEx($model, 'body') ?>
+		<?= $form->textArea($model, 'body', array('rows' => 6, 'cols' => 50)) ?>
 	</div>
 
-	<?php if(CCaptcha::checkRequirements()): ?>
+	<?php if (CCaptcha::checkRequirements()) : ?>
 	<div class="row">
-		<?= $form->labelEx($model,'verifyCode')?>
+		<?= $form->labelEx($model, 'verifyCode') ?>
 		<div>
-		<?php $this->widget('CCaptcha')?>
-		<?= $form->textField($model,'verifyCode')?>
+		<?php $this->widget('CCaptcha') ?>
+		<?= $form->textField($model, 'verifyCode') ?>
 		</div>
 		<div class="hint">Please enter the letters as they are shown in the image above.
 		<br />Letters are not case-sensitive.</div>
@@ -60,10 +58,10 @@ If you have business inquiries or other questions, please fill out the following
 	<?php endif; ?>
 
 	<div class="row submit">
-		<?= CHtml::submitButton('Submit')?>
+		<?= CHtml::submitButton('Submit') ?>
 	</div>
 
-<?php $this->endWidget()?>
+<?php $this->endWidget() ?>
 
 </div><!-- form -->
 

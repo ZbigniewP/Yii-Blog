@@ -70,7 +70,7 @@ class CakePostsController extends Controller
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 
-		$this->render('/cakepost/create', array('model' => $model));
+		$this->render('//cakepost/create', array('model' => $model));
 	}
 
 	/**
@@ -86,7 +86,7 @@ class CakePostsController extends Controller
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 
-		$this->render('/cakepost/update', array('model' => $model));
+		$this->render('//cakepost/update', array('model' => $model));
 	}
 
 	/**
@@ -111,22 +111,22 @@ class CakePostsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$criteria = new CDbCriteria(array(
+		$criteria = new CDbCriteria([
 			'condition' => 'status=' . CakePosts::STATUS_PUBLISHED,
 			// 'order' => 'updated DESC',
 			'order' => 'created DESC',
 			// 'with' => 'commentCount',
-			'with' => array('category', 'user')
-		));
+			'with' => ['category', 'user']
+		]);
 		if (isset($_GET['tag']))
 			$criteria->addSearchCondition('category_id', $_GET['tag']);
 
-		$dataProvider = new CActiveDataProvider('CakePosts', array(
+		$dataProvider = new CActiveDataProvider('CakePosts', [
 			'pagination' => array('pageSize' => 2),//Yii::app()->params['postsPerPage']
 			'criteria' => $criteria,
-		));
+		]);
 
-		$this->render('//post/index', array('dataProvider' => $dataProvider));
+		$this->render('//post/index', ['dataProvider' => $dataProvider]);
 	}
 
 	/**
@@ -137,7 +137,7 @@ class CakePostsController extends Controller
 		$model = new CakePosts('search');
 		if (isset($_GET['Post']))
 			$model->attributes = $_GET['Post'];
-		$this->render('admin', array('model' => $model));
+		$this->render('admin', ['model' => $model]);
 	}
 
 	/**

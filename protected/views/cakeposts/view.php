@@ -8,7 +8,7 @@ $this->pageTitle = $model->name;
 <div id="comments">
 	<?php if ($model->commentCount >= 1) : ?>
 		<h3>
-			<?php echo $model->commentCount > 1 ? $model->commentCount . ' comments' : 'One comment'; ?>
+			<?= $model->commentCount > 1 ? $model->commentCount . ' comments' : 'One comment'; ?>
 		</h3>
 
 		<?php $this->renderPartial('_comments', array('post' => $model, 'comments' => $model->comments))?>

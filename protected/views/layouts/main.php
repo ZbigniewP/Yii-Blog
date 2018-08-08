@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
 <div class="container" id="page">
 
 	<div id="header">
@@ -26,18 +25,28 @@
 	</div><!-- header -->
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu', array(
-			'items' => array(
-				array('label' => 'Yii', 'url' => array('post/index')),
-				array('label' => 'Cake', 'url' => array('cakeposts/index')),
-				array('label' => 'Cake2', 'url' => array('postcake/index')),
-				array('label' => 'Symfony', 'url' => array('demopost/index')),
-				array('label' => 'About', 'url' => array('site/page', 'view' => 'about')),
-				array('label' => 'Contact', 'url' => array('site/contact')),
-				array('label' => 'Login', 'url' => array('site/login'), 'visible' => Yii::app()->user->isGuest),
-				array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('site/logout'), 'visible' => !Yii::app()->user->isGuest)
-			),
-		))?>
+		<?php 
+		$this->widget('zii.widgets.CMenu', ['items' => [
+				['label' => 'Yii', 'url' => ['post/index']],
+				['label' => 'Cake', 'url' => ['cakeposts/index']],
+				['label' => 'Cake2', 'url' => ['postcake/index']],
+
+				['label' => 'Symfony', 'url' => ['//symfony']],
+// array('label'=>'Products', 'url'=>array('product/index'), 
+// 'items'=>array(
+// array('label'=>'New Arrivals', 'url'=>array('product/new', 'tag'=>'new')),
+// array('label'=>'Most Popular', 'url'=>array('product/index', 'tag'=>'popular')),
+// )),
+				['label' => 'About', 'url' => ['site/page', 'view' => 'about']],
+				['label' => 'Contact', 'url' => ['site/contact']],
+
+				['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::app()->user->isGuest],
+				['label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => ['site/logout'], 'visible' => !Yii::app()->user->isGuest],
+
+				['label' => Yii::t('messages', 'action.sign_in'), 'url' => ['symfony/admin/login'], 'visible' => Yii::app()->user->isGuest],
+				['label' => Yii::t('messages', 'menu.logout').' (' . Yii::app()->user->name . ')', 'url' => ['symfony/admin/logout'], 'visible' => !Yii::app()->user->isGuest],
+		]]);
+		?>
 	</div><!-- mainmenu -->
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', ['links' => $this->breadcrumbs]) ?><!-- breadcrumbs -->

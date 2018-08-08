@@ -12,8 +12,8 @@
  * @property string $roles
  *
  * The followings are the available model relations:
- * @property DemoComment[] $demoComments
- * @property DemoPost[] $demoPosts
+ * @property DemoComment[] $symfonyDemoComments
+ * @property DemoPost[] $symfonyDemoPosts
  */
 class DemoUser extends CActiveRecord
 {
@@ -58,8 +58,8 @@ class DemoUser extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'demoComments' => array(self::HAS_MANY, 'DemoComment', 'author_id'),
-			'demoPosts' => array(self::HAS_MANY, 'DemoPost', 'author_id'),
+			'symfonyDemoComments' => array(self::HAS_MANY, 'DemoComment', 'author_id'),
+			'symfonyDemoPosts' => array(self::HAS_MANY, 'DemoPost', 'author_id'),
 		);
 	}
 

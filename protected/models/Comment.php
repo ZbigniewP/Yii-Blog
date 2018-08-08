@@ -39,12 +39,13 @@ class Comment extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
-			array('content, author, email', 'required'),
-			array('author, email, url', 'length', 'max'=>128),
-			array('email','email'),
-			array('url','url'),
-		);
+        return array(
+            array('content, author, email', 'required'),
+            array('author, email, url', 'length', 'max'=>128),
+            array('email','email'),
+            array('url','url'),
+        );
+
 	}
 
 	/**

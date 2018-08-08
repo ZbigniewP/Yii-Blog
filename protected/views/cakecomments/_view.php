@@ -15,12 +15,12 @@ $('.container').on('click','.time a.delete',function() {
 DEL;
 Yii::app()->getClientScript()->registerScript('delete', $deleteJS);
 ?>
-<div class="comment" id="c<?php echo $data->id; ?>">
+<div class="comment" id="c<?= $data->id; ?>">
 
 	<?= CHtml::link("#{$data->id}", $data->url, array('class' => 'cid', 'title' => 'Permalink to this comment'))?>
 
 	<div class="author">
-		<?php echo $data->authorLink; ?> says on
+		<?= $data->authorLink; ?> says on
 		<?= CHtml::link(CHtml::encode($data->post->name), $data->post->url)?>
 	</div>
 
@@ -31,7 +31,7 @@ Yii::app()->getClientScript()->registerScript('delete', $deleteJS);
 		<?php endif; ?>
 		<?= CHtml::link('Update', array('update', 'id' => $data->id))?> |
 		<?= CHtml::link('Delete', array('delete', 'id' => $data->id), array('class' => 'delete'))?> |
-		<?php echo $data->created; ?>
+		<?= $data->created; ?>
 	</div>
 
 	<div class="content">

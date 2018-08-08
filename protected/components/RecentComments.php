@@ -10,10 +10,13 @@ class RecentComments extends CPortlet
 	public function getRecentComments()
 	{
 		switch ($this->owner->id) {
-			case 'cakeposts': return CakeComments::model()->findRecentComments($this->maxComments);
-			case 'demopost': return DemoComment::model()->findRecentComments($this->maxComments);
+			case 'cakeposts':
+				return CakeComments::model()->findRecentComments($this->maxComments);
+			case 'symfony/yiipost': case 'symfony/admin/blog':
+				return DemoComment::model()->findRecentComments($this->maxComments);
 			case 'post':
-			default: return Comment::model()->findRecentComments($this->maxComments);
+			default:
+				return Comment::model()->findRecentComments($this->maxComments);
 		}
 	}
 

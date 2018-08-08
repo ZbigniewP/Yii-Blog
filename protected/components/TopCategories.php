@@ -11,8 +11,9 @@ class TopCategories extends CPortlet
 	{
 		switch (strtolower($this->owner->id)) {
 			case 'postcake':
-			case 'cakeposts': return CakeCategories::model()->findTopCategories($this->maxCategories);
-			// case 'demopost': return DemoTag::model()->findTopTags($this->maxCategories);
+			case 'cakeposts':
+				return CakeCategories::model()->findTopCategories($this->maxCategories);
+			// case 'symfony/yiipost': return DemoTag::model()->findTopTags($this->maxCategories);
 			// case 'post':
 			// default: return Tag::model()->findTopTags($this->maxCategories);
 		}

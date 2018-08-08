@@ -18,6 +18,8 @@ class DemoComment extends CActiveRecord
 {
 	const STATUS_PENDING = 1;
 	const STATUS_APPROVED = 2;
+	// TO DO
+	public $email;
 
 	/**
 	 * @return CDbConnection the database connection used for this class
@@ -42,17 +44,17 @@ class DemoComment extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
-			// array('post_id, author_id, content, publishedAt', 'required'),
-			// array('post_id, author_id', 'numerical', 'integerOnly'=>true),
+		return [
+			// ['post_id, author_id, content, publishedAt', 'required'],
+			// ['post_id, author_id', 'numerical', 'integerOnly'=>true],
 			// // The following rule is used by search().
 			// // @todo Please remove those attributes that should not be searched.
-			// array('id, post_id, author_id, content, publishedAt', 'safe', 'on'=>'search'),
-			array('content, author, email', 'required'),
-			array('author, email, url', 'length', 'max' => 128),
-			array('email', 'email'),
-			array('url', 'url'),
-		);
+			// ['id, post_id, author_id, content, publishedAt', 'safe', 'on'=>'search'],
+			['content, author, email', 'required'],
+			['author, email, url', 'length', 'max' => 128],
+			['email', 'email'],
+			['url', 'url'],
+		];
 	}
 
 	/**
@@ -62,10 +64,10 @@ class DemoComment extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'author' => array(self::BELONGS_TO, 'DemoUser', 'author_id'),
-			'post' => array(self::BELONGS_TO, 'DemoPost', 'post_id'),
-		);
+		return [
+			'author' => [self::BELONGS_TO, 'DemoUser', 'author_id'],
+			'post' => [self::BELONGS_TO, 'DemoPost', 'post_id'],
+		];
 	}
 
 	/**
@@ -73,13 +75,13 @@ class DemoComment extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
-		return array(
+		return [
 			'id' => 'ID',
 			'post_id' => 'Post',
 			'author_id' => 'Author',
 			'content' => 'Content',
 			'publishedAt' => 'Published At',
-		);
+		];
 	}
 
 	/**
@@ -106,9 +108,7 @@ class DemoComment extends CActiveRecord
 		$criteria->compare('content', $this->content, true);
 		$criteria->compare('publishedAt', $this->publishedAt, true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria' => $criteria,
-		));
+		return new CActiveDataProvider($this, ['criteria' => $criteria]);
 	}
 
 	/**
@@ -128,11 +128,11 @@ class DemoComment extends CActiveRecord
 	 */
 	public function findRecentComments($limit = 10)
 	{
-		return $this->with('post')->findAll(array(
+		return $this->with('post')->findAll([
 			'condition' => 't.status=' . self::STATUS_APPROVED,
 			'order' => 't.publishedAt DESC',
 			'limit' => $limit,
-		));
+		]);
 	}
 
 	/**
@@ -174,7 +174,7 @@ class DemoComment extends CActiveRecord
 	public function approve()
 	{
 		$this->status = self::STATUS_APPROVED;
-		$this->update(array('status'));
+		$this->update(['status']);
 	}
 
 	/**

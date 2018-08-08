@@ -1,12 +1,11 @@
-<?php 
-/** @var \App\View\AppView $this */ ?>
+<?php /** @var \App\View\AppView $this */ ?>
 <div class="col-md-4 span-8 sidebar">
 	<h4>Categories</h4>
 	<div class="list-group">
 <?php 
 // $this->getRecentCategories()
 foreach ($categories as $category) :
-	echo CHtml::link("<span class='badge'>{$category->post_count}</span>{$category->name}",
+	echo CHtml::link("<span class=\"badge\">{$category->post_count}</span>{$category->name}",
 		['controller' => 'Posts', 'action' => 'category', 'slug' => $category->slug],
 		['escape' => false, 'class' => 'list-group-item']);
 endforeach;

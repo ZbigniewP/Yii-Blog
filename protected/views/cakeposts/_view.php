@@ -3,7 +3,7 @@
 		<?= CHtml::link(CHtml::encode($data->name), $data->url)?>
 	</div>
 	<div class="author">
-		posted by <?php echo $data->author->username . ' on ' . $data->created ?>
+		posted by <?= $data->author->username . ' on ' . $data->created ?>
 	</div>
 	<div class="content">
 		<?php
@@ -14,7 +14,7 @@
 	</div>
 	<div class="nav">
 		<b>Category:</b>
-		<?php echo $data->categoryLink ?>
+		<?= $data->categoryLink ?>
 		<br />
 		<?= CHtml::link('Permalink', $data->url)?> |
 		<?= CHtml::link("Comments ({$data->commentCount})",$data->url.'#comments')?>

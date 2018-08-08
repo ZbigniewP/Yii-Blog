@@ -1,6 +1,6 @@
 <ul>
 	<?php foreach($this->getRecentComments() as $comment): ?>
-	<li><?php echo $comment->authorLink; ?> on
+	<li><?= $comment->authorLink; ?> on
 		<?php 
 		if(isset($comment->post->title)) echo CHtml::link(CHtml::encode($comment->post->title), $comment->getUrl());
 		else echo CHtml::link(CHtml::encode($comment->post->name), $comment->getUrl()); 

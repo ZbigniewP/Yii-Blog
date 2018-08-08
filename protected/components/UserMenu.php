@@ -13,11 +13,11 @@ class UserMenu extends CPortlet
 	protected function renderContent()
 	{
 		switch ($this->owner->id) {
-			case 'cakeposts':
-			case 'cakecomments':
+			case 'cakeposts': case 'cakecomments':
 				$this->render('cakeUserMenu');
 				break;
-			case 'demopost':
+			case 'symfony/yiipost': case 'symfony/admin/blog':
+				$this->render('symfonySidebar');
 				$this->render('symfonyUserMenu');
 				break;
 			case 'comment':
