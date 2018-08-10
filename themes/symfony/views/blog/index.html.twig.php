@@ -10,7 +10,7 @@ Yii::app()->format->timeFormat = 'medium';
 <?php foreach ($posts as $post) : ?>
 		<article class="post">
 			<h2>
-				<a href="<?= Yii::app()->createUrl('symfony/post/show', ['slug'=>$post->slug]) ?>">
+				<a href="<?= Yii::app()->createUrl('symfony/blog/show', ['slug'=>$post->slug]) ?>">
 					<?= $post->title ?>
 				</a>
 			</h2>

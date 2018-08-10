@@ -172,6 +172,10 @@ class BlogController extends Controller
 		if (isset($slug)) {
 			$post = DemoPost::model()->with(['comments', 'symfonyDemoTags'])->findByAttributes(['slug' => $slug]);
 		}
+// echo "<pre>";
+// print_r([$slug,$post]);
+// echo "</pre>";
+// exit();
 		$this->render('//blog/post_show.html.twig', ['post' => $post]);
 	}
 

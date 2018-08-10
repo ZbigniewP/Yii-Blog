@@ -110,10 +110,14 @@ class SecurityController extends Controller
 		## display the login form
 		// $this->render('index', ['model' => $model]);
 		// $this->render('//security/login.html.twig');
-		// $this->layout = '//layouts/homepage.html.twig';
+		$this->layout = '//layouts/homepage.html.twig';
 		
-		$this->render('index');
-		// $this->renderText('layouts/homepage.html.twig');
+
+		// $this->render('index');
+		$this->renderText('layouts/homepage.html.twig');
+
+		// $model = new DemoLoginForm;
+		// $this->render('login', ['model' => $model, 'last_username' => Yii::app()->user->name]);
 	}
 
 	/**

@@ -204,7 +204,7 @@ class CakePostsController extends Controller
 	 * @param string $slug wanted slug
 	 * @return void
 	 */
-	public function category($slug)
+	public function actionCategory($slug)
 	{
 		// $posts = $this->paginate($this->Posts->find()->where(['Categories.slug' => $slug]));
 

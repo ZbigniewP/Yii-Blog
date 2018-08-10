@@ -12,8 +12,8 @@
 			<item>
 				<title><?= $post->title ?></title>
 				<description><?= $post->summary ?></description>
-				<link><?= Yii::app()->createUrl('symfony/post/show', ['slug' => $post->slug]) ?></link>
-				<guid><?= Yii::app()->createUrl('symfony/post/show', ['slug' => $post->slug]) ?></guid>
+				<link><?= Yii::app()->createUrl('symfony/blog/show', ['slug' => $post->slug]) ?></link>
+				<guid><?= Yii::app()->createUrl('symfony/blog/show', ['slug' => $post->slug]) ?></guid>
 				<pubDate><?= CTimestamp::formatDate('d-M-Y H:i:s T', strtotime($post->publishedAt)) ?></pubDate>
 				<author><?= $post->author->email ?></author>
 				<?php foreach ($post->symfonyDemoTags as $tag) : ?>

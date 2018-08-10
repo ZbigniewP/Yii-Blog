@@ -37,17 +37,17 @@ return array(
 		),
 		'db' => array(
 			'connectionString' => 'sqlite:protected/data/blog.db',
-			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_yii.sdb3',
+			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_yii.sqlite',
 			'tablePrefix' => 'tbl_',
 		),
 		'db_symfony' => array(
 			'class' => 'CDbConnection',
-			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_symfony.sdb3',
+			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_symfony.sqlite',
 			'tablePrefix' => 'symfony_',
 		),
 		'db_cake' => array(
 			'class' => 'CDbConnection',
-			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_cake.sdb3',
+			'connectionString' => 'sqlite:' . dirname(dirname(__FILE__)) . '/data/blog_cake.sqlite',
 		),
 		// uncomment the following to use a MySQL database
 		/*
@@ -70,8 +70,8 @@ return array(
 				'post/<id:\d+>/<title:.*?' . '>' => 'post/view',
 				'posts/<tag:.*?' . '>' => 'post/index',
 
-				'symfony/yiipost/<id:\d+>/<title:.*?' . '>' => 'symfony/yiipost/view',
-				'symfony/yiipost/<tag:.*?' . '>' => 'symfony/yiipost/index',
+				// 'symfony/yiipost/<id:\d+>/<title:.*?' . '>' => 'symfony/yiipost/view',
+				// 'symfony/yiipost/<tag:.*?' . '>' => 'symfony/yiipost/index',
 
 				// 'cakeposts/<id:\d+>/<title:.*?' . '>' => 'cakeposts/view',
 				// 'category/<tag:.*?' . '>' => 'cakeposts/index',
@@ -79,11 +79,11 @@ return array(
 				'symfony' => 'symfony/security/index',//'symfony/blog/index',
 				// 'symfony/blog/<lang:\w+>' => 'symfony/blog/index',//'symfony/blog/index',
 				'symfony/admin/<action:\w+>' => 'symfony/security/<action>',
-				// 'symfony/admin/post' => 'symfony/admin/blog/index',
+				'symfony/admin/post/<action:\w+>' => 'symfony/admin/blog/<action>',
 				// 'symfony/page/{page<[1-9]\d*>}' => 'symfony/blog/index/paginated',
 				// 'symfony/post/<action:\w+>' => 'symfony/blog/<action:\w+>',
 				'symfony/rss.xml' => 'symfony/blog/rss',
-				'symfony/post/show/<slug:.*?' . '>' => 'symfony/blog/show',
+				'symfony/blog/show/<slug:.*?' . '>' => 'symfony/blog/show',
 
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 				// '<controller:\w+>/<action:\w+>/<lang:\w+>' => '<controller>/<action>'

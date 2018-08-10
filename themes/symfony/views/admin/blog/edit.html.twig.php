@@ -19,7 +19,8 @@
 		</a>
 	</div>
 	<div class="section actions">
-		<?php $this->renderPartial('//admin/blog/_delete_form.html.twig', ['post' => $post]) ?>, with_context = false) }}
+		<?php $this->renderPartial('//admin/blog/_delete_form.html.twig', ['post' => $post]) ?>
+		<!-- , with_context = false) }} -->
 	</div>
 	<!-- {{ parent() }} -->
 	<!-- {{ show_source_code(_self) }} -->
